@@ -19,7 +19,7 @@ for cfg in "${CFG_LIST[@]}"; do
     echo "========================================================================"
     echo "Running $cfg ..."
     echo "========================================================================"
-    $BIN --num-gpus $NUM_GPUS --config-file "$cfg" \
+    $BIN --num-gpus $NUM_GPUS --configs-file "$cfg" \
       SOLVER.IMS_PER_BATCH $(($NUM_GPUS * 2)) \
       OUTPUT_DIR "$OUTPUT"
     rm -rf "$OUTPUT"

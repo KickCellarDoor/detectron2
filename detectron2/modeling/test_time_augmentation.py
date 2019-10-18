@@ -22,7 +22,7 @@ class DatasetMapperTTA:
     Implement test-time augmentation for detection data.
     It is a callable which takes a dataset dict from a detection dataset,
     and returns a list of dataset dicts where the images
-    are augmented from the input image by the transformations defined in the config.
+    are augmented from the input image by the transformations defined in the configs.
     This is used for test-time augmentation.
     """
 

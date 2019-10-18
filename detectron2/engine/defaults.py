@@ -53,7 +53,7 @@ def default_argument_parser():
         argparse.ArgumentParser:
     """
     parser = argparse.ArgumentParser(description="Detectron2 Training")
-    parser.add_argument("--config-file", default="", metavar="FILE", help="path to config file")
+    parser.add_argument("--configs-file", default="", metavar="FILE", help="path to configs file")
     parser.add_argument(
         "--resume",
         action="store_true",
@@ -73,7 +73,7 @@ def default_argument_parser():
     parser.add_argument("--dist-url", default="tcp://127.0.0.1:{}".format(port))
     parser.add_argument(
         "opts",
-        help="Modify config options using the command-line",
+        help="Modify configs options using the command-line",
         default=None,
         nargs=argparse.REMAINDER,
     )
@@ -85,11 +85,11 @@ def default_setup(cfg, args):
     Perform some basic common setups at the beginning of a job, including:
 
     1. Set up the detectron2 logger
-    2. Log basic information about environment, cmdline arguments, and config
-    3. Backup the config to the output directory
+    2. Log basic information about environment, cmdline arguments, and configs
+    3. Backup the configs to the output directory
 
     Args:
-        cfg (CfgNode): the full config to be used
+        cfg (CfgNode): the full configs to be used
         args (argparse.NameSpace): the command line arguments to be logged
     """
     output_dir = cfg.OUTPUT_DIR
@@ -111,14 +111,14 @@ def default_setup(cfg, args):
             )
         )
 
-    logger.info("Running with full config:\n{}".format(cfg))
+    logger.info("Running with full configs:\n{}".format(cfg))
     if comm.is_main_process() and output_dir:
         # Note: some of our scripts may expect the existence of
-        # config.yaml in output directory
-        path = os.path.join(output_dir, "config.yaml")
+        # configs.yaml in output directory
+        path = os.path.join(output_dir, "configs.yaml")
         with PathManager.open(path, "w") as f:
             f.write(cfg.dump())
-        logger.info("Full config saved to {}".format(os.path.abspath(path)))
+        logger.info("Full configs saved to {}".format(os.path.abspath(path)))
 
     # make sure each worker has a different, yet deterministic seed if specified
     seed_all_rng(None if cfg.SEED < 0 else cfg.SEED + rank)
@@ -131,7 +131,7 @@ def default_setup(cfg, args):
 
 class DefaultPredictor:
     """
-    Create a simple end-to-end predictor with the given config.
+    Create a simple end-to-end predictor with the given configs.
     The predictor takes an BGR image and produce a dict of predictions.
 
     Attributes:
@@ -182,7 +182,7 @@ class DefaultTrainer(SimpleTrainer):
     A trainer with default training logic. Compared to `SimpleTrainer`, it
     contains the following logic in addition:
 
-    1. Create model, optimizer, scheduler, dataloader from the given config.
+    1. Create model, optimizer, scheduler, dataloader from the given configs.
     2. Load a checkpoint or `cfg.MODEL.WEIGHTS`, if exists.
     3. Register a few common hooks.
 
@@ -243,7 +243,7 @@ class DefaultTrainer(SimpleTrainer):
         """
         If `resume==True`, and last checkpoint exists, resume from it.
 
-        Otherwise, load a model specified by the config.
+        Otherwise, load a model specified by the configs.
 
         Args:
             resume (bool): whether to do resume or not

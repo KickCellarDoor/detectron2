@@ -18,7 +18,7 @@ fi
 
 # echo "Running mypy ..."
 # Pytorch does not have enough type annotations
-# mypy detectron2/solver detectron2/structures detectron2/config
+# mypy detectron2/solver detectron2/structures detectron2/configs
 
 echo "Running clang-format ..."
 find . -regex ".*\.\(cpp\|c\|cc\|cu\|cxx\|h\|hh\|hpp\|hxx\|tcc\|mm\|m\)" -print0 | xargs -0 clang-format -i

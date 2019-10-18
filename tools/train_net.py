@@ -2,7 +2,7 @@
 """
 Detection Training Script.
 
-This scripts reads a given config file and runs the training or evaluation.
+This scripts reads a given configs file and runs the training or evaluation.
 It is an entry point that is made to train standard models in detectron2.
 
 In order to let one script support training of many models,

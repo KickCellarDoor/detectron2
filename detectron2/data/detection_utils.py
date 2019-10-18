@@ -368,7 +368,7 @@ def check_metadata_consistency(key, dataset_names):
 
 def build_transform_gen(cfg, is_train):
     """
-    Create a list of :class:`TransformGen` from config.
+    Create a list of :class:`TransformGen` from configs.
     Now it includes resizing and flipping.
 
     Returns:

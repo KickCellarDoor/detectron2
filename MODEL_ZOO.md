@@ -66,7 +66,7 @@ All models available for download through this document are licensed under the
 2. Copy the below command to the place of the table
 3. :.!bash
 
-./gen_html_table.py --config 'COCO-Detection/faster*50*'{1x,3x}'*' 'COCO-Detection/faster*101*' --name R50-C4 R50-DC5 R50-FPN R50-C4 R50-DC5 R50-FPN R101-C4 R101-DC5 R101-FPN X101-FPN --fields lr_sched train_speed inference_speed mem box_AP
+./gen_html_table.py --configs 'COCO-Detection/faster*50*'{1x,3x}'*' 'COCO-Detection/faster*101*' --name R50-C4 R50-DC5 R50-FPN R50-C4 R50-DC5 R50-FPN R101-C4 R101-DC5 R101-FPN X101-FPN --fields lr_sched train_speed inference_speed mem box_AP
 -->
 
 <table><tbody>
@@ -185,7 +185,7 @@ All models available for download through this document are licensed under the
 
 #### RetinaNet:
 <!--
-./gen_html_table.py --config 'COCO-Detection/retina*50*' 'COCO-Detection/retina*101*' --name R50 R50 R101 --fields lr_sched train_speed inference_speed mem box_AP
+./gen_html_table.py --configs 'COCO-Detection/retina*50*' 'COCO-Detection/retina*101*' --name R50 R50 R101 --fields lr_sched train_speed inference_speed mem box_AP
 -->
 
 <table><tbody>
@@ -234,7 +234,7 @@ All models available for download through this document are licensed under the
 
 #### RPN & Fast R-CNN:
 <!--
-./gen_html_table.py --config 'COCO-Detection/rpn*' 'COCO-Detection/fast_rcnn*' --name "RPN R50-C4" "RPN R50-FPN" "Fast R-CNN R50-FPN" --fields lr_sched train_speed inference_speed mem box_AP prop_AR
+./gen_html_table.py --configs 'COCO-Detection/rpn*' 'COCO-Detection/fast_rcnn*' --name "RPN R50-C4" "RPN R50-FPN" "Fast R-CNN R50-FPN" --fields lr_sched train_speed inference_speed mem box_AP prop_AR
 -->
 
 <table><tbody>
@@ -287,7 +287,7 @@ All models available for download through this document are licensed under the
 
 ### COCO Instance Segmentation Baselines with Mask R-CNN
 <!--
-./gen_html_table.py --config 'COCO-InstanceSegmentation/mask*50*'{1x,3x}'*' 'COCO-InstanceSegmentation/mask*101*' --name R50-C4 R50-DC5 R50-FPN R50-C4 R50-DC5 R50-FPN R101-C4 R101-DC5 R101-FPN X101-FPN --fields lr_sched train_speed inference_speed mem box_AP mask_AP
+./gen_html_table.py --configs 'COCO-InstanceSegmentation/mask*50*'{1x,3x}'*' 'COCO-InstanceSegmentation/mask*101*' --name R50-C4 R50-DC5 R50-FPN R50-C4 R50-DC5 R50-FPN R101-C4 R101-DC5 R101-FPN X101-FPN --fields lr_sched train_speed inference_speed mem box_AP mask_AP
 -->
 
 <table><tbody>
@@ -417,7 +417,7 @@ All models available for download through this document are licensed under the
 
 ### COCO Person Keypoint Detection Baselines with Keypoint R-CNN
 <!--
-./gen_html_table.py --config 'COCO-Keypoints/*50*' 'COCO-Keypoints/*101*'  --name R50-FPN R50-FPN R101-FPN X101-FPN --fields lr_sched train_speed inference_speed mem box_AP keypoint_AP
+./gen_html_table.py --configs 'COCO-Keypoints/*50*' 'COCO-Keypoints/*101*'  --name R50-FPN R50-FPN R101-FPN X101-FPN --fields lr_sched train_speed inference_speed mem box_AP keypoint_AP
 -->
 
 <table><tbody>
@@ -481,7 +481,7 @@ All models available for download through this document are licensed under the
 
 ### COCO Panoptic Segmentation Baselines with Panoptic FPN
 <!--
-./gen_html_table.py --config 'COCO-PanopticSegmentation/*50*' 'COCO-PanopticSegmentation/*101*'  --name R50-FPN R50-FPN R101-FPN --fields lr_sched train_speed inference_speed mem box_AP mask_AP PQ
+./gen_html_table.py --configs 'COCO-PanopticSegmentation/*50*' 'COCO-PanopticSegmentation/*101*'  --name R50-FPN R50-FPN R101-FPN --fields lr_sched train_speed inference_speed mem box_AP mask_AP PQ
 -->
 
 <table><tbody>
@@ -547,7 +547,7 @@ They are roughly 24 epochs of LVISv0.5 data.
 The final results of these configs has large variance across different runs.
 
 <!--
-./gen_html_table.py --config 'LVIS-InstanceSegmentation/mask*50*' 'LVIS-InstanceSegmentation/mask*101*' --name R50-FPN R101-FPN X101-FPN --fields lr_sched train_speed inference_speed mem box_AP mask_AP
+./gen_html_table.py --configs 'LVIS-InstanceSegmentation/mask*50*' 'LVIS-InstanceSegmentation/mask*101*' --name R50-FPN R101-FPN X101-FPN --fields lr_sched train_speed inference_speed mem box_AP mask_AP
 -->
 
 
@@ -607,7 +607,7 @@ Simple baselines for
 * Faster R-CNN on PASCAL VOC object detection (trained on VOC 2007 train+val + VOC 2012 train+val, tested on VOC 2007 using 11-point interpolated AP)
 
 <!--
-./gen_html_table.py --config 'Cityscapes/*' 'PascalVOC-Detection/*' --name "R50-FPN, Cityscapes" "R50-C4, VOC" --fields train_speed inference_speed mem box_AP box_AP50 mask_AP
+./gen_html_table.py --configs 'Cityscapes/*' 'PascalVOC-Detection/*' --name "R50-FPN, Cityscapes" "R50-C4, VOC" --fields train_speed inference_speed mem box_AP box_AP50 mask_AP
 -->
 
 
@@ -654,7 +654,7 @@ Simple baselines for
 Ablations for Deformable Conv and Cascade R-CNN:
 
 <!--
-./gen_html_table.py --config 'COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_1x.yaml' 'Misc/*R_50_FPN_1x_dconv*' 'Misc/cascade*50*' --name "Baseline R50-FPN" "Deformable Conv" "Cascade R-CNN" --fields lr_sched train_speed inference_speed mem box_AP mask_AP
+./gen_html_table.py --configs 'COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_1x.yaml' 'Misc/*R_50_FPN_1x_dconv*' 'Misc/cascade*50*' --name "Baseline R50-FPN" "Deformable Conv" "Cascade R-CNN" --fields lr_sched train_speed inference_speed mem box_AP mask_AP
 -->
 
 <table><tbody>
@@ -710,7 +710,7 @@ Ablations for normalization methods:
 (Note: The baseline uses `2fc` head while the others use `4conv1fc` head. According to the
 [GroupNorm paper](https://arxiv.org/abs/1803.08494), the change in head does not improve the baseline by much)
 <!--
-./gen_html_table.py --config 'COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml' 'Misc/mask*50_FPN_3x_syncbn.yaml' 'Misc/mask*50_FPN_3x_gn.yaml' 'Misc/scratch*' --name "Baseline R50-FPN" "SyncBN" "GN" "GN (scratch)" --fields lr_sched train_speed inference_speed mem box_AP mask_AP
+./gen_html_table.py --configs 'COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml' 'Misc/mask*50_FPN_3x_syncbn.yaml' 'Misc/mask*50_FPN_3x_gn.yaml' 'Misc/scratch*' --name "Baseline R50-FPN" "SyncBN" "GN" "GN (scratch)" --fields lr_sched train_speed inference_speed mem box_AP mask_AP
 	 -->
 
 
@@ -777,7 +777,7 @@ Ablations for normalization methods:
 A few very large models trained for a long time, for demo purposes:
 
 <!--
-./gen_html_table.py --config 'Misc/panoptic_*dconv*' 'Misc/cascade_*152*' --name "Panoptic FPN R101" "Mask R-CNN X152" --fields inference_speed mem box_AP mask_AP PQ
+./gen_html_table.py --configs 'Misc/panoptic_*dconv*' 'Misc/cascade_*152*' --name "Panoptic FPN R101" "Mask R-CNN X152" --fields inference_speed mem box_AP mask_AP PQ
 # manually add TTA results
 -->
 

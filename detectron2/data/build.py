@@ -287,14 +287,14 @@ def build_detection_train_loader(cfg, mapper=None):
     """
     A data loader is created by the following steps:
 
-    1. Use the dataset names in config to query :class:`DatasetCatalog`, and obtain a list of dicts.
+    1. Use the dataset names in configs to query :class:`DatasetCatalog`, and obtain a list of dicts.
     2. Start workers to work on the dicts. Each worker will:
       * Map each metadata dict into another format to be consumed by the model.
       * Batch them by simply putting dicts into a list.
     The batched ``list[mapped_dict]`` is what this dataloader will return.
 
     Args:
-        cfg (CfgNode): the config
+        cfg (CfgNode): the configs
         mapper (callable): a callable which takes a sample (dict) from dataset and
             returns the format to be consumed by the model.
             By default it will be `DatasetMapper(cfg, True)`.

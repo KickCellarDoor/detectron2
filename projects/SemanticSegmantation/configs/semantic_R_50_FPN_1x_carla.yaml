@@ -1,0 +1,4 @@
+_BASE_: "../../../configs/Misc/semantic_R_50_FPN_1x.yaml"
+DATASETS:
+  TRAIN: ("semantic-carla-origin-train",)
+  TEST: ("semantic-carla-origin-test",)

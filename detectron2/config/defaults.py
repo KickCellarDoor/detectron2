@@ -214,7 +214,7 @@ _C.MODEL.RPN.PRE_NMS_TOPK_TEST = 6000
 # Number of top scoring RPN proposals to keep after applying NMS
 # When FPN is used, this limit is applied per level and then again to the union
 # of proposals from all levels
-# NOTE: When FPN is used, the meaning of this config is different from Detectron1.
+# NOTE: When FPN is used, the meaning of this configs is different from Detectron1.
 # It means per-batch topk in Detectron1, but per-image topk here.
 # See "modeling/rpn/rpn_outputs.py" for details.
 _C.MODEL.RPN.POST_NMS_TOPK_TRAIN = 2000
@@ -549,11 +549,11 @@ _C.SEED = -1
 # iterations. It usually hurts total time, but can benefit for certain models.
 _C.CUDNN_BENCHMARK = False
 
-# global config is for quick hack purposes.
-# You can set them in command line or config files,
+# global configs is for quick hack purposes.
+# You can set them in command line or configs files,
 # and access it with:
 #
-# from detectron2.config import global_cfg
+# from detectron2.configs import global_cfg
 # print(global_cfg.HACK)
 #
 # Do not commit any configs into it.

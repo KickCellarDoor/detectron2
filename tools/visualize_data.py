@@ -31,12 +31,12 @@ def parse_args(in_args=None):
         required=True,
         help="visualize the annotations or the data loader (with pre-processing)",
     )
-    parser.add_argument("--config-file", default="", metavar="FILE", help="path to config file")
+    parser.add_argument("--configs-file", default="", metavar="FILE", help="path to configs file")
     parser.add_argument("--output-dir", default="./", help="path to output directory")
     parser.add_argument("--show", action="store_true", help="show output in a window")
     parser.add_argument(
         "opts",
-        help="Modify config options using the command-line",
+        help="Modify configs options using the command-line",
         default=None,
         nargs=argparse.REMAINDER,
     )

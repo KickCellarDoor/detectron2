@@ -10,13 +10,13 @@ Instructions to bump version:
     1. Increment _C.VERSION in defaults.py
     2. Add a converter in this file.
 
-      Each ConverterVX has a function "upgrade" which in-place upgrades config from X-1 to X,
-      and a function "downgrade" which in-place downgrades config from X to X-1
+      Each ConverterVX has a function "upgrade" which in-place upgrades configs from X-1 to X,
+      and a function "downgrade" which in-place downgrades configs from X to X-1
 
       In each function, VERSION is left unchanged.
 
       Each converter assumes that its input has the relevant keys
-      (i.e., the input is not a partial config).
+      (i.e., the input is not a partial configs).
     3. Run the tests (test_config.py) to make sure the upgrade & downgrade
        functions are consistent.
 """
@@ -32,7 +32,7 @@ __all__ = ["upgrade_config", "downgrade_config"]
 
 def upgrade_config(cfg: CN, to_version: Optional[int] = None) -> CN:
     """
-    Upgrade a config from its current version to a newer version.
+    Upgrade a configs from its current version to a newer version.
 
     Args:
         cfg (CfgNode):
@@ -54,7 +54,7 @@ def upgrade_config(cfg: CN, to_version: Optional[int] = None) -> CN:
 
 def downgrade_config(cfg: CN, to_version: int) -> CN:
     """
-    Downgrade a config from its current version to an older version.
+    Downgrade a configs from its current version to an older version.
 
     Args:
         cfg (CfgNode):
@@ -64,7 +64,7 @@ def downgrade_config(cfg: CN, to_version: int) -> CN:
         A general downgrade of arbitrary configs is not always possible due to the
         different functionalities in different versions.
         The purpose of downgrade is only to recover the defaults in old versions,
-        allowing it to load an old partial yaml config.
+        allowing it to load an old partial yaml configs.
         Therefore, the implementation only needs to fill in the default values
         in the old version when a general downgrade is not possible.
     """
@@ -81,7 +81,7 @@ def downgrade_config(cfg: CN, to_version: int) -> CN:
 
 def guess_version(cfg: CN, filename: str) -> int:
     """
-    Guess the version of a partial config where the VERSION field is not specified.
+    Guess the version of a partial configs where the VERSION field is not specified.
     Returns the version, or the latest if cannot make a guess.
 
     This makes it easier for users to migrate.

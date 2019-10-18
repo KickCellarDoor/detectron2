@@ -6,7 +6,7 @@ from detectron2.config import CfgNode as CN
 
 def add_tridentnet_config(cfg):
     """
-    Add config for tridentnet.
+    Add configs for tridentnet.
     """
     _C = cfg
 

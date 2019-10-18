@@ -22,7 +22,7 @@ class DatasetCatalog(object):
     if used with the data loader functionalities in `data/build.py,data/detection_transform.py`.
 
     The purpose of having this catalog is to make it easy to choose
-    different datasets, by just using the strings in the config.
+    different datasets, by just using the strings in the configs.
     """
 
     _REGISTERED = {}

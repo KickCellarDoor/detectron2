@@ -141,7 +141,7 @@ class MaskRCNNConvUpsampleHead(nn.Module):
 
     def __init__(self, cfg, input_shape: ShapeSpec):
         """
-        The following attributes are parsed from config:
+        The following attributes are parsed from configs:
             num_conv: the number of conv layers
             conv_dim: the dimension of the conv layers
             norm: normalization for the conv layers

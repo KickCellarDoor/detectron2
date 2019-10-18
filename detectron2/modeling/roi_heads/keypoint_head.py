@@ -123,7 +123,7 @@ class KRCNNConvDeconvUpsampleHead(nn.Module):
 
     def __init__(self, cfg, input_shape: ShapeSpec):
         """
-        The following attributes are parsed from config:
+        The following attributes are parsed from configs:
             conv_dims: an iterable of output channel counts for each conv in the head
                          e.g. (512, 512, 512) for three convs outputting 512 channels.
             num_keypoints: number of keypoint heatmaps to predicts, determines the number of
@@ -132,7 +132,7 @@ class KRCNNConvDeconvUpsampleHead(nn.Module):
         super(KRCNNConvDeconvUpsampleHead, self).__init__()
 
         # fmt: off
-        # default up_scale to 2 (this can eventually be moved to config)
+        # default up_scale to 2 (this can eventually be moved to configs)
         up_scale      = 2
         conv_dims     = cfg.MODEL.ROI_KEYPOINT_HEAD.CONV_DIMS
         num_keypoints = cfg.MODEL.ROI_KEYPOINT_HEAD.NUM_KEYPOINTS

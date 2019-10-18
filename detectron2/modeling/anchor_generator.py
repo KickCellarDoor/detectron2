@@ -112,7 +112,7 @@ class DefaultAnchorGenerator(nn.Module):
                 location, on that feature map.
                 For example, if at every pixel we use anchors of 3 aspect
                 ratios and 5 sizes, the number of anchors is 15.
-                (See also ANCHOR_GENERATOR.SIZES and ANCHOR_GENERATOR.ASPECT_RATIOS in config)
+                (See also ANCHOR_GENERATOR.SIZES and ANCHOR_GENERATOR.ASPECT_RATIOS in configs)
 
                 In standard RPN models, `num_cell_anchors` on every feature map is the same.
         """
@@ -265,7 +265,7 @@ class RotatedAnchorGenerator(nn.Module):
                 For example, if at every pixel we use anchors of 3 aspect
                 ratios, 2 sizes and 5 angles, the number of anchors is 30.
                 (See also ANCHOR_GENERATOR.SIZES, ANCHOR_GENERATOR.ASPECT_RATIOS
-                and ANCHOR_GENERATOR.ANGLES in config)
+                and ANCHOR_GENERATOR.ANGLES in configs)
 
                 In standard RRPN models, `num_cell_anchors` on every feature map is the same.
         """

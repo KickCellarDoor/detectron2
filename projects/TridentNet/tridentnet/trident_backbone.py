@@ -131,7 +131,7 @@ def make_trident_stage(block_class, num_blocks, first_stride, **kwargs):
 @BACKBONE_REGISTRY.register()
 def build_trident_resnet_backbone(cfg, input_shape):
     """
-    Create a ResNet instance from config for TridentNet.
+    Create a ResNet instance from configs for TridentNet.
 
     Returns:
         ResNet: a :class:`ResNet` instance.

@@ -25,7 +25,7 @@ class FastRCNNConvFCHead(nn.Module):
 
     def __init__(self, cfg, input_shape: ShapeSpec):
         """
-        The following attributes are parsed from config:
+        The following attributes are parsed from configs:
             num_conv, num_fc: the number of conv/fc layers
             conv_dim/fc_dim: the dimension of the conv/fc layers
             norm: normalization for the conv layers

@@ -9,7 +9,7 @@ from .lr_scheduler import WarmupCosineLR, WarmupMultiStepLR
 
 def build_optimizer(cfg: CfgNode, model: torch.nn.Module) -> torch.optim.Optimizer:
     """
-    Build an optimizer from config.
+    Build an optimizer from configs.
     """
     params: List[Dict[str, Any]] = []
     for key, value in model.named_parameters():
@@ -36,7 +36,7 @@ def build_lr_scheduler(
     cfg: CfgNode, optimizer: torch.optim.Optimizer
 ) -> torch.optim.lr_scheduler._LRScheduler:
     """
-    Build a LR scheduler from config.
+    Build a LR scheduler from configs.
     """
     name = cfg.SOLVER.LR_SCHEDULER_NAME
     if name == "WarmupMultiStepLR":

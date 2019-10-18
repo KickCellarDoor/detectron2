@@ -59,13 +59,13 @@ class InferenceAction(Action):
     @classmethod
     def add_arguments(cls: type, parser: argparse.ArgumentParser):
         super(InferenceAction, cls).add_arguments(parser)
-        parser.add_argument("cfg", metavar="<config>", help="Config file")
+        parser.add_argument("cfg", metavar="<configs>", help="Config file")
         parser.add_argument("model", metavar="<model>", help="Model file")
         parser.add_argument("input", metavar="<input>", help="Input data")
 
     @classmethod
     def execute(cls: type, args: argparse.Namespace):
-        logger.info(f"Loading config from {args.cfg}")
+        logger.info(f"Loading configs from {args.cfg}")
         opts = []
         cfg = cls.setup_config(args.cfg, args.model, args, opts)
         logger.info(f"Loading model from {args.model}")

@@ -404,7 +404,7 @@ class ResNet(Backbone):
 @BACKBONE_REGISTRY.register()
 def build_resnet_backbone(cfg, input_shape):
     """
-    Create a ResNet instance from config.
+    Create a ResNet instance from configs.
 
     Returns:
         ResNet: a :class:`ResNet` instance.

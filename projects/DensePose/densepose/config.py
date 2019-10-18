@@ -6,7 +6,7 @@ from detectron2.config import CfgNode as CN
 
 def add_densepose_config(cfg):
     """
-    Add config for densepose head.
+    Add configs for densepose head.
     """
     _C = cfg
 

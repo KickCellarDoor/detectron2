@@ -7,14 +7,14 @@ from fvcore.common.config import CfgNode as _CfgNode
 
 class CfgNode(_CfgNode):
     """
-    The same as `fvcore.common.config.CfgNode`, but different in:
+    The same as `fvcore.common.configs.CfgNode`, but different in:
 
     1. Use unsafe yaml loading by default.
       Note that this may lead to arbitrary code execution: you must not
-      load a config file from untrusted sources before manually inspecting
+      load a configs file from untrusted sources before manually inspecting
       the content of the file.
-    2. Support config versioning.
-      When attempting to merge an old config, it will convert the old config automatically.
+    2. Support configs versioning.
+      When attempting to merge an old configs, it will convert the old configs automatically.
 
     """
 
@@ -29,7 +29,7 @@ class CfgNode(_CfgNode):
         latest_ver = _C.VERSION
         assert (
             latest_ver == self.VERSION
-        ), "CfgNode.merge_from_file is only allowed on a config of latest version!"
+        ), "CfgNode.merge_from_file is only allowed on a configs of latest version!"
 
         logger = logging.getLogger(__name__)
 
@@ -38,7 +38,7 @@ class CfgNode(_CfgNode):
             from .compat import guess_version
 
             loaded_ver = guess_version(loaded_cfg, cfg_filename)
-        assert loaded_ver <= self.VERSION, "Cannot merge a v{} config into a v{} config.".format(
+        assert loaded_ver <= self.VERSION, "Cannot merge a v{} configs into a v{} configs.".format(
             loaded_ver, self.VERSION
         )
 
@@ -49,12 +49,12 @@ class CfgNode(_CfgNode):
             from .compat import upgrade_config, downgrade_config
 
             logger.warning(
-                "Loading an old v{} config file '{}' by automatically upgrading to v{}. "
+                "Loading an old v{} configs file '{}' by automatically upgrading to v{}. "
                 "See docs/CHANGELOG.md for instructions to update your files.".format(
                     loaded_ver, cfg_filename, self.VERSION
                 )
             )
-            # To convert, first obtain a full config at an old version
+            # To convert, first obtain a full configs at an old version
             old_self = downgrade_config(self, to_version=loaded_ver)
             old_self.merge_from_other_cfg(loaded_cfg)
             new_config = upgrade_config(old_self)
@@ -67,7 +67,7 @@ global_cfg = CfgNode()
 
 def get_cfg() -> CfgNode:
     """
-    Get a copy of the default config.
+    Get a copy of the default configs.
 
     Returns:
         a detectron2 CfgNode instance.
@@ -79,18 +79,18 @@ def get_cfg() -> CfgNode:
 
 def set_global_cfg(cfg: CfgNode) -> None:
     """
-    Let the global config point to the given cfg.
+    Let the global configs point to the given cfg.
 
     Assume that the given "cfg" has the key "KEY", after calling
     `set_global_cfg(cfg)`, the key can be accessed by:
 
     .. code-block:: python
 
-        from detectron2.config import global_cfg
+        from detectron2.configs import global_cfg
         print(global_cfg.KEY)
 
-    By using a hacky global config, you can access these configs anywhere,
-    without having to pass the config object or the values deep into the code.
+    By using a hacky global configs, you can access these configs anywhere,
+    without having to pass the configs object or the values deep into the code.
     This is a hacky feature introduced for quick prototyping / research exploration.
     """
     global global_cfg

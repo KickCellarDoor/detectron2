@@ -224,7 +224,7 @@ class RandomCrop(TransformGen):
         """
         Args:
             crop_type (str): one of "relative_range", "relative", "absolute".
-                See `config/defaults.py` for explanation.
+                See `configs/defaults.py` for explanation.
             crop_size (tuple[float]): the relative ratio or absolute pixels of
                 height and width
         """
